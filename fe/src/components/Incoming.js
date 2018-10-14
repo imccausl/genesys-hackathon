@@ -13,14 +13,6 @@ class Incoming extends Component {
           <div>{call.userData[27].value}</div>
           <div>{call.userData[28].value}</div>
         </Modal.Content>
-        <Modal.Actions>
-          <Button basic color="red" inverted>
-            <Icon name="remove" /> Hang Up
-          </Button>
-          <Button basic color="green" inverted>
-            <Icon name="checkmark" /> Accept
-          </Button>
-        </Modal.Actions>
       </Modal>
     )
   }

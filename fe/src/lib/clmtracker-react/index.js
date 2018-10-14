@@ -1,6 +1,7 @@
 import Clm from 'clmtrackr'
 import React, { Component } from 'react'
 import _ from 'lodash'
+import { Card } from 'semantic-ui-react'
 
 import EmotionClassifier from './utils/emotion_classifier'
 import emotionModel from './utils/emotionmodel'
@@ -112,18 +113,19 @@ class ClmCamera extends Component {
     const overlayStyle = {
       display: this.props.hideOverlay ? 'none' : 'block',
       position: 'absolute',
+      background: 'black',
       left: this.state.videoLeft,
       top: this.state.videoTop,
     }
 
     return (
-      <div className="video-output" style={{ zIndex: '10' }}>
-        <div>
-          Agent: {this.props.firstName} {this.props.lastName}
-        </div>
+      <Card className="video-output" raised style={{ width: '400px' }}>
         <video
           className="standard-shadow"
-          style={{ borderRadius: '12px' }}
+          style={{
+            borderRadius: '12px',
+            visibility: 'hidden',
+          }}
           width={this.props.width || '400'}
           height={this.props.height || '300'}
           ref={video => {
@@ -139,8 +141,15 @@ class ClmCamera extends Component {
             this.overlay = canvas
           }}
         />
-        <Bar data={this.state.currProfile} />
-      </div>
+        <Card.Content>
+          <Card.Header>
+            {this.props.firstName} {this.props.lastName}
+          </Card.Header>
+        </Card.Content>
+        <Card.Content extra>
+          <Bar data={this.state.currProfile} />
+        </Card.Content>
+      </Card>
     )
   }
 }

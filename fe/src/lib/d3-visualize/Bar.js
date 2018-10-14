@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import * as d3 from 'd3'
 
-const width = 400
+const width = 375
 const height = 100
 
 class ChartProvider extends Component {
@@ -25,7 +25,11 @@ class ChartProvider extends Component {
     colorScale.domain([0, 1])
 
     const bars = data.map((d, i) => {
-      const y1 = yScale(parseFloat(d.value.toFixed(1))) // something along these lines to control the graph (.tofixed)
+      let emotionIndex = parseFloat(d.value.toFixed(2))
+      if (emotionIndex < 0.1) emotionIndex = 0.01
+
+      let y1 = yScale(emotionIndex)
+
       return {
         x: xScale(i),
         y: y1,
@@ -44,7 +48,7 @@ class ChartProvider extends Component {
           {this.state.bars.map((d, i) => (
             <g key={i}>
               <rect y={d.x} width={d.y} height={24} fill={d.fill} />
-              <text className="label" y={d.x} dy="20px" fill="rgb(255,255,255)">
+              <text className="label" y={d.x} dy="20px" fill="rgb(0,0,0)">
                 {d.label.toUpperCase()}
               </text>
             </g>

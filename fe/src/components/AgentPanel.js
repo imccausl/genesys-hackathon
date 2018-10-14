@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import EmotionCamera from '../lib/clmtracker-react'
-import Chat from './Chat'
-import { Container, Row, Col } from 'react-grid-system'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { getCurrentAgent } from '../actions'
+import { Grid } from 'semantic-ui-react'
 import Speech from './Speech'
 
 class AgentPanel extends Component {
@@ -12,22 +11,22 @@ class AgentPanel extends Component {
     const { currentAgent } = this.props
 
     return (
-      <Container style={{ marginTop: '75px', fontSize: '18px', zIndex: '10' }}>
-        <Row>
-          <Col md={4}>
+      <Grid columns={3} style={{ marginTop: '10px', marginLeft: '10px' }}>
+        <Grid.Row stretched>
+          <Grid.Column>
+            <Speech />
+          </Grid.Column>
+
+          <Grid.Column>
             <EmotionCamera
               firstName={currentAgent ? currentAgent.user.firstName : ''}
               lastName={currentAgent ? currentAgent.user.lastName : ''}
             />
-          </Col>
+          </Grid.Column>
 
-          <Col md={4}>
-            <Speech />
-          </Col>
-
-          <Col md={4} />
-        </Row>
-      </Container>
+          <Grid.Column />
+        </Grid.Row>
+      </Grid>
     )
   }
 }

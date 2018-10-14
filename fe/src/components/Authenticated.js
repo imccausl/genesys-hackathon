@@ -5,8 +5,8 @@ import socketIOClient from 'socket.io-client'
 import '../App.css'
 import AgentPanel from './AgentPanel'
 import IncomingCall from './Incoming'
-
-import { getCurrentAgent } from '../actions'
+import Waiting from './WaitingForCall'
+import { getCurrentAgent, getCurrentStatus } from '../actions'
 
 class App extends Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class App extends Component {
     this.state = {
       currentUser: null,
       call: null,
-      callState: 'Established',
+      callState: null,
     }
   }
 
@@ -23,22 +23,42 @@ class App extends Component {
     const { getCurrentAgent } = this.props
 
     getCurrentAgent()
+    getCurrentStatus()
   }
 
   render() {
     const { call, callState } = this.state
+    const { status } = this.props
+
     const socket = socketIOClient('http://localhost:3002')
 
     socket.on('call-update', data => {
       this.setState({ call: data.call, callState: data.call.state })
     })
 
-    console.log(call, callState)
+    socket.on('voice-update', data => {
+      this.setState({ status: data.dn.agentState })
+    })
+
+    if (callState === 'Established') {
+      return (
+        <div className="App">
+          <AgentPanel />
+        </div>
+      )
+    }
+
+    if (callState === 'Ringing') {
+      return (
+        <div className="App">
+          <IncomingCall call={call} />
+        </div>
+      )
+    }
 
     return (
       <div className="App">
-        {callState === 'Established' ? <AgentPanel /> : null}
-        {callState === 'Ringing' ? <IncomingCall call={call} /> : null}
+        <Waiting agentStatus={this.state.status || this.props.initialState} />
       </div>
     )
   }
@@ -48,6 +68,7 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
       getCurrentAgent,
+      getCurrentStatus,
     },
     dispatch
   )
@@ -55,7 +76,8 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return {
-    currentAgent: state.agent,
+    currentAgent: state.user,
+    initialState: state.status,
   }
 }
 

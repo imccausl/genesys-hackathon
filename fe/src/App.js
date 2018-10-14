@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Route path="/accept" component={Authenticated} />
+        <Route path="/" component={Authenticated} />
       </Router>
     )
   }

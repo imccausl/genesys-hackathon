@@ -13,3 +13,15 @@ export function getCurrentAgent() {
     })
   }
 }
+
+export function getCurrentStatus() {
+  return function(dispatch) {
+    axios.get(`${API_URL}/voice/state`).then(response => {
+      console.log(response.data)
+      dispatch({
+        type: types.user.CURRENT_STATE,
+        payload: response.data.dn,
+      })
+    })
+  }
+}
