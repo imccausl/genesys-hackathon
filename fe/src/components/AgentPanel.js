@@ -11,7 +11,7 @@ class AgentPanel extends Component {
     const { currentAgent } = this.props
 
     return (
-      <Grid columns={3} style={{ marginTop: '10px', marginLeft: '10px' }}>
+      <Grid columns={2} style={{ marginTop: '10px', marginLeft: '10px' }}>
         <Grid.Row stretched>
           <Grid.Column>
             <Speech />
@@ -24,7 +24,6 @@ class AgentPanel extends Component {
             />
           </Grid.Column>
 
-          <Grid.Column />
         </Grid.Row>
       </Grid>
     )

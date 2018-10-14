@@ -15,7 +15,7 @@ class App extends Component {
     this.state = {
       currentUser: null,
       call: null,
-      callState: null,
+      callState: 'Established',
     }
   }
 
