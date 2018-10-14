@@ -11,7 +11,7 @@ const authentication = require('genesys-authentication-client-js');
 const ProvisioningApi = require('genesys-provisioning-client-js');
 const Statistics = require('genesys-statistics-client-js');
 const uuid = require('uuid/v4');
-
+const cors = require('cors')
 
 const app = express();
 
@@ -45,6 +45,7 @@ const workspaceApi = new workspace(storage.apiKey, storage.apiUrl);
 const statisticsApi = new Statistics(storage.apiKey, storage.apiUrl);
 
 // Serve webapp
+app.use(cors())
 app.use(express.static('webapp', {
   extensions: ['html', 'htm']
 }));
@@ -65,6 +66,7 @@ require('./routes/targets')(app, workspaceApi);
 require('./routes/voice')(app, workspaceApi, storage);
 require('./routes/provisioning')(app, request, provisioningApi, storage);
 require('./routes/statistics')(app, storage, statisticsApi)
+require('./routes/toast')(app, workspaceApi)
 // Event Controllers
 require('./controllers/events')(workspaceApi, io, storage);
 

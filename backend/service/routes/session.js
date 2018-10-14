@@ -9,9 +9,9 @@ module.exports = function (app, io, workspaceApi, storage, request, statisticsAp
   function loginWithoutLoginPage(req,res) {
     let encodedCredentials = new Buffer(`${storage.clientId}:${storage.clientSecret}`).toString('base64');
     // Your agent username
-    let username = 'Hackathon\StephaneHervochon@genesys.com';
+    let username = 'IanM';
     // Your agent password
-    let password = 'Genesys2!';
+    let password = 'Genesys1';
     request.post(`${storage.apiUrl}/auth/v3/oauth/token`, {
       headers: {
         'x-api-key': storage.apiKey,
