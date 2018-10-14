@@ -15,7 +15,8 @@ class App extends Component {
     this.state = {
       currentUser: null,
       call: null,
-      callState: 'Established',
+      callState: null,
+      socket: socketIOClient('http://localhost:3002'),
     }
   }
 
@@ -24,21 +25,18 @@ class App extends Component {
 
     getCurrentAgent()
     getCurrentStatus()
+
+    this.state.socket.on('call-update', data => {
+      this.setState({ call: data.call, callState: data.call.state })
+    })
+
+    this.state.socket.on('voice-update', data => {
+      this.setState({ status: data.dn.agentState })
+    })
   }
 
   render() {
     const { call, callState } = this.state
-    const { status } = this.props
-
-    const socket = socketIOClient('http://localhost:3002')
-
-    socket.on('call-update', data => {
-      this.setState({ call: data.call, callState: data.call.state })
-    })
-
-    socket.on('voice-update', data => {
-      this.setState({ status: data.dn.agentState })
-    })
 
     if (callState === 'Established') {
       return (

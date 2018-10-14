@@ -35,7 +35,7 @@ class Waiting extends Component {
           <Modal.Actions>
             <Button onClick={this.handleSetStatus} color="green" inverted>
               <Icon name="checkmark" />
-              Ready
+              Ready!
             </Button>
           </Modal.Actions>
         </Modal>

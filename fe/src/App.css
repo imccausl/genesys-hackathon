@@ -48,8 +48,9 @@ body {
 }
 
 body {
-  background: linear-gradient(135deg, #044f48, #2a7561) !important;
-  background-size: cover;
+  background-image: url('https://images5.alphacoders.com/456/456536.jpg') !important;
+  background-size: auto;
+  background-repeat: no-repeat;
   font-family: 'Open Sans', sans-serif;
   font-size: 12px;
   line-height: 1.3;
