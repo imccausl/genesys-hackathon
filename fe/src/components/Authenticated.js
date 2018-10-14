@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
-import { Container, Row, Col } from 'react-grid-system'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import socketIOClient from 'socket.io-client'
-import './App.css'
+import '../App.css'
+import AgentPanel from './AgentPanel'
+import IncomingCall from './Incoming'
 
-import EmotionCamera from './lib/clmtracker-react'
-import Chat from './components/Chat'
-import { getCurrentAgent } from './actions'
+import { getCurrentAgent } from '../actions'
 
 class App extends Component {
   constructor(props) {
@@ -15,6 +14,8 @@ class App extends Component {
 
     this.state = {
       currentUser: null,
+      call: null,
+      callState: 'Established',
     }
   }
 
@@ -25,34 +26,19 @@ class App extends Component {
   }
 
   render() {
-    const { currentAgent } = this.props
+    const { call, callState } = this.state
     const socket = socketIOClient('http://localhost:3002')
 
     socket.on('call-update', data => {
-      console.log(data)
+      this.setState({ call: data.call, callState: data.call.state })
     })
+
+    console.log(call, callState)
 
     return (
       <div className="App">
-        <Container
-          style={{ marginTop: '75px', fontSize: '18px', zIndex: '10' }}
-        >
-          <Row>
-            <Col md={4}>
-              <EmotionCamera
-                firstName={currentAgent ? currentAgent.user.firstName : ''}
-                lastName={currentAgent ? currentAgent.user.lastName : ''}
-              />
-            </Col>
-
-            <Col md={4}>
-              <Chat />
-            </Col>
-
-            <Col md={4} />
-          </Row>
-        </Container>
-        <div className="bg" />
+        {callState === 'Established' ? <AgentPanel /> : null}
+        {callState === 'Ringing' ? <IncomingCall call={call} /> : null}
       </div>
     )
   }

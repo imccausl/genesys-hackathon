@@ -14,8 +14,11 @@
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.4",
+    "react-speech-recognition": "^1.0.7",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.82.5",
     "socket.io-client": "^2.1.1"
   },
   "scripts": {
@@ -34,6 +37,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "eslint-plugin-prettier": "^3.0.0"
+    "eslint-plugin-prettier": "^3.0.0",
+    "prettier": "^1.14.3"
   }
 }

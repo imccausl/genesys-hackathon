@@ -1,0 +1,89 @@
+ani: "+16474950576"
+callType: "Inbound"
+callUuid: "01DLUL62L4CV1FK7SMU362LAES0000N8"
+capabilities: Array(1)
+0: "start-recording"
+length: 1
+__proto__: Array(0)
+connId: "016202afc59e3264"
+dnis: "+14699123081"
+duration: 7
+extensions: Array(2)
+0:
+key: "OtherTrunkName"
+type: "str"
+value: "PSTN_Trunk"
+__proto__: Object
+1: {key: "BusinessCall", type: "int", value: 1}
+length: 2
+__proto__: Array(0)
+id: "016202afc59e3264"
+participants: Array(1)
+0:
+number: "+16474950576"
+role: "RoleOrigination"
+__proto__: Object
+length: 1
+__proto__: Array(0)
+phoneNumber: "+16478572192"
+queue: "+14699123081"
+recordingState: "Stopped"
+state: "Released"
+userData: Array(57)
+0: {key: "ORSI:us-east-1:01DLUL62L4CV1FK7SMU362LAES0000N8", type: "kvlist", value: Array(3)}
+1: {key: "RStrategyName", type: "str", value: "+14699123081:105"}
+2: {key: "RStrategyDBID", type: "str", value: "196"}
+3: {key: "c27caa30-bb5e-11e8-86ee-5b7c619b7feb-flowentrycount", type: "int", value: 1}
+4: {key: "orssessionid", type: "str", value: "02165162LGCV183JSMU362LAES0000HI"}
+5: {key: "orsurl", type: "str", value: "http://use1gvm-004-001.use1.genprim.com:9098"}
+6: {key: "GSYS_SystemApplicationDisposition", type: "int", value: 1}
+7: {key: "IApplication", type: "str", value: "c27caa30-bb5e-11e8-86ee-5b7c619b7feb"}
+8: {key: "IApplicationVersion", type: "str", value: "0.1"}
+9: {key: "gsw-ivr-profile-name", type: "str", value: "auto"}
+10: {key: "gvp-tenant-id", type: "str", value: "auto"}
+11: {key: "GVP-Session-ID", type: "str", value: "7922700E-E0AE-886B-AD6F-0D015C3FF380;gvp.rm.datanodes=2|1;gvp.rm.tenant-id=1.153_IVRAppDefault"}
+12: {key: "GVP-Session-Data", type: "str", value: "callsession=7922700E-E0AE-886B-AD6F-0D015C3FF380;2…;;;Environment/Tenant_004;IVRAppDefault;;0;record"}
+13: {key: "__reason", type: "str", value: "exit"}
+14: {key: "GSYS_IVR", type: "str", value: "exit{1539483279152}"}
+15: {key: "Additional Information", type: "str", value: "Hackathon Fan"}
+16: {key: "Car brand", type: "str", value: "Peugeot"}
+17: {key: "Company Name", type: "str", value: "IBM"}
+18: {key: "Credit Card Number", type: "str", value: "123-456-667-2111"}
+19: {key: "CustomerSegment", type: "str", value: "Platinium"}
+20: {key: "Date of Birth", type: "str", value: "2/10/1967"}
+21: {key: "Dreamed Job", type: "str", value: "Architect"}
+22: {key: "Favorite Color", type: "str", value: "Blue"}
+23: {key: "FirstName", type: "str", value: "Alexander"}
+24: {key: "GPS Position", type: "str", value: "43.64687180000001,-79.3939702"}
+25: {key: "Hobbies", type: "str", value: "Cinema, Computer Science, Soccer, Tennis, Books"}
+26: {key: "Job", type: "str", value: "Software Analyst"}
+27: {key: "LastName", type: "str", value: "Doe"}
+28: {key: "Location", type: "str", value: "Toronto"}
+29: {key: "Marital Status", type: "str", value: "Married"}
+30: {key: "Place of Birth", type: "str", value: "Vancouver"}
+31: {key: "Previous Job", type: "str", value: "Accounting"}
+32: {key: "Salary", type: "str", value: "70000$"}
+33: {key: "University", type: "str", value: "Georgetown"}
+34: {key: "RTargetAgentGroup", type: "str", value: "AgentGroupTeam6"}
+35: {key: "RVQID", type: "str", value: ""}
+36: {key: "RVQDBID", type: "str", value: ""}
+37: {key: "RTargetTypeSelected", type: "str", value: "2"}
+38: {key: "RTargetRuleSelected", type: "str", value: ""}
+39: {key: "RTargetObjectSelected", type: "str", value: "AgentGroupTeam6"}
+40: {key: "RTargetObjSelDBID", type: "str", value: "269"}
+41: {key: "RTargetAgentSelected", type: "str", value: "IanM"}
+42: {key: "RTargetAgSelDBID", type: "str", value: "9342"}
+43: {key: "RTargetPlaceSelected", type: "str", value: "PlaceIanM"}
+44: {key: "RTargetPlSelDBID", type: "str", value: "7226"}
+45: {key: "RTenant", type: "str", value: "Environment"}
+46: {key: "RTenantDBID", type: "str", value: "1"}
+47: {key: "CBR-actual_volume", type: "str", value: ""}
+48: {key: "CBR-Interaction_cost", type: "str", value: ""}
+49: {key: "CBR-contract_DBIDs", type: "str", value: ""}
+50: {key: "CBR-IT-path_DBIDs", type: "str", value: ""}
+51: {key: "RRequestedSkillCombination", type: "str", value: ""}
+52: {key: "RRequestedSkills", type: "kvlist", value: Array(0)}
+53: {key: "RTargetRequested", type: "str", value: "AgentGroupTeam6"}
+54: {key: "ServiceType", type: "str", value: "default"}
+55: {key: "ServiceObjective", type: "str", value: ""}
+56: {key: "PegAGAgentGroupTeam6", type: "int", value: 1}
